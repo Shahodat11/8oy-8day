@@ -1,25 +1,30 @@
-import { useState } from 'react'
-import './App.css'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/home/Home'
-import CreateProduct from './pages/create-product/CreateProduct';
-
+import React from "react";
+import Login from "./pages/login/Login";
+import User from "./pages/user/User";
+import Home from "./pages/home/Home";
+import Register from "./pages/register/Register";
+import { Link, Route, Routes } from "react-router-dom";
+import CreateProduct from "./pages/create-product/CreateProduct";
 
 function App() {
-  const [count, setCount] = useState(0)
   return (
     <>
-    <div>
-      <h2>CreateProduct</h2>
-      <Link to={"/"}>Home</Link>
-      <Link to={"/create-product"}>create-product</Link>
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/create-product' element={<CreateProduct/>}/>
-      </Routes>
-    </div>
+      <div>
+        <Link to={"/"}>Home </Link>
+        <Link to={"/create-product"}>create-product </Link>
+        <Link to={"/login"}>Login </Link>
+        <Link to={"/register"}>Register </Link>
+        <Link to={"/user"}>User</Link>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/create-product" element={<CreateProduct />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/user" element={<User />} />
+        </Routes>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

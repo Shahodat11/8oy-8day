@@ -1,47 +1,47 @@
-import { api } from './index'
+import { api } from "./index";
 
 export const productApi = api.injectEndpoints({
   endpoints: (build) => ({
     // Get request
     getProducts: build.query({
-      query: (params) => ({ 
-        url: '/products/search', 
-        params 
+      query: (params) => ({
+        url: "/products/search",
+        params,
       }),
-      providesTags:["Product"]
+      providesTags: ["Product"],
     }),
     // Post request
     createProduct: build.mutation({
-      query: (body)=> ({
-        url: "/products",
+      query: (body) => ({
+        url: "/products/create",
         method: "POST",
-        body
+        body,
       }),
-      invalidatesTags: ["Product"]
+      invalidatesTags: ["Product"],
     }),
     // Patch request
     updateProduct: build.mutation({
-      query: ({_id, body})=> ({
+      query: ({ _id, body }) => ({
         url: `/`,
         method: "PATCH",
-        body
+        body,
       }),
-      invalidatesTags: ["Product"]
+      invalidatesTags: ["Product"],
     }),
     // Delete request
     deleteProduct: build.mutation({
-      query: (id)=> ({
-        url:`/`,
-        method: "DELETE"
+      query: (id) => ({
+        url: `/`,
+        method: "DELETE",
       }),
-      invalidatesTags: ["Product"]
-    })
+      invalidatesTags: ["Product"],
+    }),
   }),
-})
+});
 
 export const {
   useGetProductsQuery,
   useDeleteProductMutation,
   useCreateProductMutation,
-  useUpdateProductMutation
-} = productApi
+  useUpdateProductMutation,
+} = productApi;
