@@ -1,4 +1,5 @@
 import React from "react";
+import "../login/login.css";
 import axios from "../../api/index";
 import { useGetInputValue } from "../../hooks/useGetInputValue";
 
@@ -18,11 +19,12 @@ const Login = () => {
     });
   };
   return (
-    <div>
+    <div className="container">
       <div>
         <form onSubmit={handleLogin}>
-          <h2>Login</h2>
+          <h4 className="login-h2">Login</h4>
           <input
+            className="login-form"
             value={formData.UserName}
             onChange={handleChange}
             name="UserName"
@@ -30,13 +32,14 @@ const Login = () => {
             placeholder="UserName"
           />
           <input
+            className="login-form"
             value={formData.password}
             onChange={handleChange}
             name="password"
             type="password"
             placeholder="password"
           />
-          <button>Login</button>
+          <button className="login-bottom">Login</button>
         </form>
       </div>
     </div>

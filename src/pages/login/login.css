@@ -1,0 +1,33 @@
+.login-form{
+    margin-top: -70px;
+    width: 303px;
+    height: 40px;
+    top: 613px;
+    gap: 0px;
+    border-radius: 10px;
+    opacity: 0px;
+    padding-left: 10px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20.08px;
+    text-align: left;
+    outline: none;
+    border: 2px solid blue;
+}
+.login-h2{
+    padding-top: 15px;
+    color: #000;
+}
+.login-bottom{
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20.08px;
+    width: 100px;
+    height: 40px;
+    color: blue;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 2px solid blue;
+}

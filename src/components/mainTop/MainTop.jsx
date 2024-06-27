@@ -16,7 +16,11 @@ function MainTop() {
               brands. So why you are waiting? Just order now!
             </p>
             <div className="form">
-              <input type="text" placeholder="Find the best brands" />
+              <input
+                className="input"
+                type="text"
+                placeholder="Find the best brands"
+              />
               <button className="form_button">Search</button>
             </div>
           </div>

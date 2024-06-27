@@ -1,42 +1,38 @@
-import React, { useEffect, useState } from 'react'
-import axios from '../../api'
-
+import React, { useEffect, useState } from "react";
+import axios from "../../api";
 
 const User = () => {
-  const [users, setUsers] = useState(null)
-  const userData = JSON.parse(localStorage.getItem("user-data"))
+  const [users, setUsers] = useState(null);
+  const userData = JSON.parse(localStorage.getItem("user-data"));
   console.log(userData);
-  useEffect(()=>{
-    axios
-      .get("/users/search", {params: {limit: 1000}})
-      .then(res => {
-        setUsers(res.data.data.users);
-      })
-  }, [])
+  useEffect(() => {
+    axios.get("/users/search", { params: { limit: 1000 } }).then((res) => {
+      setUsers(res.data.data.users);
+    });
+  }, []);
 
-  const deleteUserById = id => {
-    axios
-      .delete(`/users/${id}`)
-  }
+  const deleteUserById = (id) => {
+    axios.delete(`/users/${id}`);
+  };
 
   return (
-    <div>
-      <h1>{userData?.FirstName} : {userData?.role}</h1>
-      {
-        users?.map(user => (
-          <div key={user.id}>
-            <h3>{user.FirstName}</h3>
-            {
-              userData?.role === "owner" ? 
-              <button onClick={()=> deleteUserById(user.id)}>delete</button>
-              :
-              <></>
-            }
-          </div>
-        ))
-      }
+    <div className="container">
+      <h4 className="login-h2">user</h4>
+      {/* <h1>
+        {userData?.FirstName} : {userData?.role}
+      </h1> */}
+      {users?.map((user) => (
+        <div key={user.id}>
+          <h3>{user.FirstName}</h3>
+          {userData?.role === "owner" ? (
+            <button onClick={() => deleteUserById(user.id)}>delete</button>
+          ) : (
+            <></>
+          )}
+        </div>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default User
+export default User;

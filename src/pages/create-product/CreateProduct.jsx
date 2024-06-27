@@ -42,50 +42,57 @@ const CreateProduct = () => {
   };
   return (
     <div>
-      <div>
+      <div className="container">
         <form onSubmit={handleChangeProduct}>
-          <h2>CreateProduct</h2>
+          <h4 className="login-h2">CreateProduct</h4>
           <input
             value={formData.title}
             onChange={handleChange}
             type="text"
             name="title"
+            placeholder="title"
           />
           <input
             value={formData.price}
             onChange={handleChange}
             type="number"
             name="price"
+            placeholder="price"
           />
           <input
             value={formData.oldPrice}
             onChange={handleChange}
             type="number"
             name="oldPrice"
+            placeholder="oldPrice"
           />
           <input
             value={formData.category}
             onChange={handleChange}
             type="text"
             name="category"
+            placeholder="category"
           />
           <input
             value={formData.units}
             onChange={handleChange}
             type="text"
             name="units"
+            placeholder=""
           />
           <textarea
             value={formData.description}
             onChange={handleChange}
             name="description"
             id=""
+            placeholder="description"
           ></textarea>
           <textarea
             value={formData.info}
             onChange={handleChange}
             name="info"
             id=""
+            placeholder="info"
           ></textarea>
           <div>
             <input
