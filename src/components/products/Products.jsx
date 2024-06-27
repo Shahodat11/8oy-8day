@@ -3,13 +3,37 @@ import "../products/products.css";
 import { useGetProductsQuery } from "../../context/api/productApi";
 import star from "../../assets/Group 13.svg";
 import { Pagination, Box } from "@mui/material";
-
-const perPageCount = 5;
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 const Products = () => {
-  const [page, setPage] = useState(1);
-  const { data } = useGetProductsQuery({ limit: perPageCount });
+  const [page, setPage] = useState(+sessionStorage.getItem("page-count" || 1));
+  const [perPageCount, setPerPageCount] = useState(
+    +localStorage.getItem("page") || 5
+  );
+  const { data } = useGetProductsQuery({ limit: perPageCount, page });
   console.log(data);
+
+  const handleChangePagination = (_, value) => {
+    setPage(value);
+    sessionStorage.setItem("page-count", value);
+  };
+
+  let totalPagination = Math.ceil(data?.data?.count / perPageCount);
+
+  const handleChangePage = (e) => {
+    let value = e.target.value;
+    setPerPageCount(value);
+    localStorage.setItem("page", e.target.value);
+
+    let result = Math.ceil((page * perPageCount) / value);
+
+    setPage(result);
+    sessionStorage.setItem("page-count", result);
+  };
+
   return (
     <div className="container">
       <div className="product">
@@ -29,11 +53,28 @@ const Products = () => {
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Pagination
           className="pagination"
-          count={10}
+          count={totalPagination}
           page={page}
-          onChange={(_, value) => setPage(value)}
+          onChange={handleChangePagination}
           color="primary"
         />
+      </Box>
+      <Box>
+        <FormControl sx={{ m: 1, minWidth: 80 }}>
+          <InputLabel id="demo-simple-select-autowidth-label">Pages</InputLabel>
+          <Select
+            labelId="demo-simple-select-autowidth-label"
+            id="demo-simple-select-autowidth"
+            value={perPageCount}
+            onChange={handleChangePage}
+            autoWidth
+            label="Pages"
+          >
+            <MenuItem value={5}>5</MenuItem>
+            <MenuItem value={10}>10</MenuItem>
+            <MenuItem value={15}>15</MenuItem>
+          </Select>
+        </FormControl>
       </Box>
     </div>
   );
