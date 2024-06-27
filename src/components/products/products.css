@@ -1,0 +1,41 @@
+.product{
+    padding-top: 135px;
+}
+.products{
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+h5{
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.36px;
+    text-align: center;
+    color: #3858D6;
+}
+h4{
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43.57px;
+    text-align: center;
+    color: #1E1D1D;
+    padding-bottom: 65px;
+}
+.card{
+    width: 230px;
+    height: 250px;
+}
+.product_h3{
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: left;
+}
+.pagination{
+    padding-top: 100px;
+}

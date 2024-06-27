@@ -5,16 +5,13 @@ import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import { Link, Route, Routes } from "react-router-dom";
 import CreateProduct from "./pages/create-product/CreateProduct";
+import Header from "./components/header/Header";
 
 function App() {
   return (
     <>
       <div>
-        <Link to={"/"}>Home </Link>
-        <Link to={"/create-product"}>create-product </Link>
-        <Link to={"/login"}>Login </Link>
-        <Link to={"/register"}>Register </Link>
-        <Link to={"/user"}>User</Link>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/create-product" element={<CreateProduct />} />
@@ -28,3 +25,17 @@ function App() {
 }
 
 export default App;
+{
+  /* <Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/contact" element={<Contact />} />
+  <Route path="/" element={<Auth />}>
+    <Route path="/Admin" element={<Admin />} />
+  </Route>
+  <Route path="/wishlist" element={<Wishlist />} />
+  <Route path="/cart" element={<Cart />} />
+  <Route path="/checkout" element={<Checkout />} />
+  <Route path="/Login" element={<Login />} />
+  <Route path="/single/:id" element={<Single />} />
+</Routes>; */
+}

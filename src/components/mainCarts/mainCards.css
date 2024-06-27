@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+.mainCarts{
+    padding-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cart{
+    display: flex;
+    width: 354px;
+    height: 239px;
+    top: 73px;
+    left: 748px;
+    gap: 0px;
+    border-radius: 22px;
+    opacity: 0px;
+    background-color: #F6F6F6;
+}
+.cart_p{
+    width: 173px;
+    height: 76px;
+    top: 175px;
+    left: 908px;
+    gap: 0px;
+    opacity: 0px;
+    padding-left: 10px;
+}
+.cart_h6{
+    padding-top: 50px;
+    padding-left: 10px;
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43.57px;
+    text-align: left;
+}
